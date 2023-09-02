@@ -27,20 +27,24 @@ class UserView(RetrieveAPIView):
         return Response(serializer.data)
 
 
-class LoginView(APIView):
-    def post(self, request, format=None):
-        username = request.data.get('username')
-        password = request.data.get('password')
+# class LoginView(APIView):
+#     def post(self, request, format=None):
+#         username = request.data.get('username')
+#         password = request.data.get('password')
 
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request, user)
-            refresh = RefreshToken.for_user(user)
-            token = str(refresh.access_token)
+#         user = authenticate(username=username, password=password)
+#         if user is not None:
+#             login(request, user)
+#             refresh = RefreshToken.for_user(user)
+#             token = str(refresh.access_token)
 
-            return JsonResponse({'token': token, 'user': {'username': user.username}}, status=status.HTTP_200_OK)
-        else:
-            return HttpResponse(status=status.HTTP_401_UNAUTHORIZED)
+#             return JsonResponse({'token': token, 'user': {'username': user.username}}, status=status.HTTP_200_OK)
+#         else:
+#             return HttpResponse(status=status.HTTP_401_UNAUTHORIZED)
+
+
+# class LoginRefresh(APIView):
+#     pass
  
         
 class LogoutView(APIView):

@@ -7,7 +7,7 @@ class Quote(models.Model):
     contact_name = models.CharField(max_length=50)
     notes = models.TextField(max_length=1000, blank=True, null=True)
     brazed = models.BooleanField(default=False)
-    surface_area = models.IntegerField(default=0)
+    surface_area = models.DecimalField(max_digits=6, decimal_places=2, default=0)
     electroless = models.BooleanField(default=False)
     particle = models.CharField(max_length=20, default='synthetic', choices=[
         ("synthetic", "Synthetic"),
@@ -43,11 +43,11 @@ class Quote(models.Model):
     ])
     fixture = models.BooleanField(default=False)
     fixture_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    tooling_type = models.CharField(max_length=20, default="customerProvided", choices=[
-        ("customerProvided", "Customer Provided"),
-        ("stripReplate", "Strip & Replate"),
-        ("blankNeeded", "Blank Needed"),
-    ]),
+    tooling_type = models.CharField(max_length=20, choices=[
+        ("Customer Provided", "Customer Provided"),
+        ("Strip & Replate", "Strip & Replate"),
+        ("Blank Needed", "Blank Needed"),
+    ])
     strip_replate = models.CharField(max_length=25, blank=True, null=True, choices=[
         ("small/easy part", "Small/Easy Part"),
         ("medium size/difficulty", "Medium Size/Difficulty"),
@@ -66,4 +66,5 @@ class Quote(models.Model):
         ("veryDifficult", "Very Difficult")
     ])
     expedited = models.BooleanField(default=False)
+    price = models.DecimalField(max_digits=12, decimal_places=2, default=0)
 

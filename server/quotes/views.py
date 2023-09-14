@@ -41,6 +41,20 @@ class QuoteDetailView(APIView):
         serializer = QuoteSerializer(quote)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
+    # Edit the Quote by ID
+    def put(self, request, id, *args, **kwargs):
+        try:
+            quote = Quote.objects.get(id=id)
+        except Quote.DoesNotExist:
+            raise NotFound("Quote not found with the specified ID.")
+
+        serializer = QuoteSerializer(quote, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
     # Delete one Quote by ID
     def delete(self, request, id, *args, **kwargs):
         try:

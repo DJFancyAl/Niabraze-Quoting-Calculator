@@ -7,7 +7,7 @@ class Quote(models.Model):
     contact_name = models.CharField(max_length=50)
     notes = models.TextField(max_length=1000, blank=True, null=True)
     brazed = models.BooleanField(default=False)
-    surface_area = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+    surface_area = models.DecimalField(max_digits=6, decimal_places=4, default=0)
     electroless = models.BooleanField(default=False)
     particle = models.CharField(max_length=20, default='synthetic', choices=[
         ("synthetic", "Synthetic"),
@@ -56,10 +56,10 @@ class Quote(models.Model):
     blank_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     machining = models.BooleanField(default=False)
     machine_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    prep_labor = models.DecimalField(max_digits=6, decimal_places=2, default=0)
-    plating_labor = models.DecimalField(max_digits=6, decimal_places=2, default=0)
-    cleaning_labor = models.DecimalField(max_digits=6, decimal_places=2, default=0)
-    pack_labor = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+    prep_labor = models.DecimalField(max_digits=6, decimal_places=4, default=0)
+    plating_labor = models.DecimalField(max_digits=6, decimal_places=4, default=0)
+    cleaning_labor = models.DecimalField(max_digits=6, decimal_places=4, default=0)
+    pack_labor = models.DecimalField(max_digits=6, decimal_places=4, default=0)
     difficulty = models.CharField(max_length=20, choices=[
         ("easy", "Easy"),
         ("moreDifficult", "More Difficult"),

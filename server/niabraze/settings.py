@@ -159,6 +159,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:9000",
+    "https://niabraze-quote-calculator.onrender.com"
 ]
 
 REST_FRAMEWORK = {

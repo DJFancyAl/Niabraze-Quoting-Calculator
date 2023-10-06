@@ -28,7 +28,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://niabraze-quote-calculator.onrender.com/']
+ALLOWED_HOSTS = ['https://niabraze-quote-calculator.onrender.com']
 
 
 # Application definition
@@ -90,7 +90,7 @@ DATABASES = {
         'NAME': os.environ['POSTGRES_DB'],
         'USER': os.environ['POSTGRES_USER'],
         'PASSWORD': os.environ['POSTGRES_PASSWORD'],
-        'HOST': 'db',
+        'HOST': os.environ['POSTGRES_HOST'],
         'PORT': '5432',
     }
     # 'default': {
@@ -157,7 +157,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # )
 
 CORS_ALLOWED_ORIGINS = [
-    "https://niabraze-quote-calculator.onrender.com/"
+    "http://localhost:3000",
+    "http://127.0.0.1:9000",
 ]
 
 REST_FRAMEWORK = {

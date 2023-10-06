@@ -1,7 +1,5 @@
-# Exit on error
-set -o errexit
-
 # Install Python dependencies
+python -m pip install --upgrade pip
 pip install requirements.txt
 
 # Collect static assets

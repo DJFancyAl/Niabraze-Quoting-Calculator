@@ -22,9 +22,9 @@ def render_react(request):
     return render(request, "index.html")
 
 urlpatterns = [
-    re_path(r"^$", render_react),
-    re_path(r"^(?:.*)/?$", render_react),
     path('admin/', admin.site.urls),
     path('quotes/', include('quotes.urls')),
     path('users/', include('users.urls')),
+    re_path(r"^$", render_react),
+    re_path(r"^(?:.*)/?$", render_react),
 ]

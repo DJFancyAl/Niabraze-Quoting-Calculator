@@ -26,13 +26,11 @@ load_dotenv()
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-# ALLOWED_HOSTS = ['niabraze-quote-calculator.onrender.com']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['niabraze-quote-calculator.onrender.com']
 
 # Application definition
-
 INSTALLED_APPS = [
     'quotes',
     'rest_framework',

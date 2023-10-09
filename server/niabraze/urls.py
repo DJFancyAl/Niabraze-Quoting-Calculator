@@ -23,6 +23,7 @@ def render_react(request):
 
 urlpatterns = [
     re_path(r"^$", render_react),
+    re_path(r"^(?:.*)/?$", render_react),
     path('admin/', admin.site.urls),
     path('quotes/', include('quotes.urls')),
     path('users/', include('users.urls')),
